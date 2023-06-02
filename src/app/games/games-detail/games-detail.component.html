@@ -1,1 +1,18 @@
-<p>games-detail works!</p>
+<div class="container" *ngIf="game$ | async as game">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8 col-md-6 col-lg-6 text-center">
+
+      <div class="card mb-3">
+        <img class="card-img-top" class="game-detail-max-height" [src]="game.background_image" [alt]="game.name">
+        <div class="card-body">
+
+          <h5 class="card-title">Name: {{game.name}}</h5>
+          <p class="card-text">Released: {{game.released | date:'dd/MM/yyyy'}}</p>
+          <a class="btn btn-secondary" [routerLink]="['/', 'games']">Go back</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -2,14 +2,27 @@
   <div class="card-body">
     <h2>Data Listing</h2>
     <input
+      #input
       type="text"
       class="form-control"
       placeholder="Search..."
-      [(ngModel)]="searchQuery" />
-    <div *ngIf="loading$ | async">Loading data...</div>
+      [(ngModel)]="searchQuery"
+       />
+    <ng-container *ngIf="loading$ | async">
+      <div class="container">
+
+          <div class="d-flex justify-content-center flex-column align-items-center">
+            <p class="text-center">Loading...</p>
+            <div class="spinner-border text-primary text-center" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+
+      </div>
+    </ng-container>
     <div *ngIf="error">Error loading data. Please try again.</div>
-    <div *ngIf="!(loading$ | async) && !error">
-      <div class="row justify-content-center ">
+    <div *ngIf=" !error">
+      <div class="row justify-content-center">
         <div
           class="col-12 col-sm-6 col-md-4 col-lg-4 d-flex align-items-stretch mb-2"
           *ngFor="let game of listOfGames$ | async">
