@@ -1,0 +1,21 @@
+<div class="h-100 card">
+  <div class="card-body">
+    <h2>Data Listing</h2>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search..."
+      [(ngModel)]="searchQuery" />
+    <div *ngIf="loading$ | async">Loading data...</div>
+    <div *ngIf="error">Error loading data. Please try again.</div>
+    <div *ngIf="!(loading$ | async) && !error">
+      <div class="row justify-content-center ">
+        <div
+          class="col-12 col-sm-6 col-md-4 col-lg-4 d-flex align-items-stretch mb-2"
+          *ngFor="let game of listOfGames$ | async">
+          <app-game [gameItem]="game"></app-game>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

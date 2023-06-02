@@ -20,15 +20,10 @@
             "outputPath": "dist/video-games-listing-app-front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
@@ -92,26 +87,25 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "3ecb7e40-a785-4cd6-a64c-c7f78223c9f9"
+    "analytics": "3ecb7e40-a785-4cd6-a64c-c7f78223c9f9",
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

@@ -1,0 +1,27 @@
+<div class="card mt-3 mb-3 max-height-card" (click)="goToDetail(gameItem)">
+  <img
+    [src]="gameItem.background_image"
+    class="card-img-top img-fluid max-height-img"
+    [alt]="gameItem.name" />
+
+  <div class="card-body text-center" [ngClass]="">
+    <h5 class="card-title text-center">{{ gameItem.name }}</h5>
+    <p class="card-text text-center">
+      Rating <span>{{ gameItem.rating }}</span>
+    </p>
+    <a class="btn btn-primary ">Details</a>
+  </div>
+  <div class="card-footer">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h5 class="card-title">Platforms</h5>
+        <span >|</span>
+        <span
+
+          *ngFor="let item of gameItem.platforms; let i = index">
+          {{ item.platform.name }} |
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
